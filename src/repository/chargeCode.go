@@ -2,15 +2,16 @@ package repository
 
 import (
 	"github.com/arvan-challenge/src/entity"
+	repository "github.com/arvan-challenge/src/repository/interface"
 	"gorm.io/gorm"
 )
 
 type chargeCodeRepository struct {
-	CommonBehaviourRepository[entity.ChargeCode]
+	repository.CommonBehaviourRepository[entity.ChargeCode]
 }
 
-func NewChargeCodeRepository(db *gorm.DB) ChargeCodeRepository {
+func NewChargeCodeRepository(db *gorm.DB) repository.ChargeCodeRepository {
 	return &chargeCodeRepository{
-		CommonBehaviourRepository: NewCommonBehaviour[entity.ChargeCode](db),
+		CommonBehaviourRepository: repository.NewCommonBehaviour[entity.ChargeCode](db),
 	}
 }

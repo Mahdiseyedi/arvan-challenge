@@ -2,15 +2,16 @@ package repository
 
 import (
 	"github.com/arvan-challenge/src/entity"
+	repository "github.com/arvan-challenge/src/repository/interface"
 	"gorm.io/gorm"
 )
 
 type disCountCodeRepository struct {
-	CommonBehaviourRepository[entity.DiscountCode]
+	repository.CommonBehaviourRepository[entity.DiscountCode]
 }
 
-func NewDisCountCodeRepository(db *gorm.DB) DiscountCodeRepository {
+func NewDisCountCodeRepository(db *gorm.DB) repository.DiscountCodeRepository {
 	return &disCountCodeRepository{
-		CommonBehaviourRepository: NewCommonBehaviour[entity.DiscountCode](db),
+		CommonBehaviourRepository: repository.NewCommonBehaviour[entity.DiscountCode](db),
 	}
 }

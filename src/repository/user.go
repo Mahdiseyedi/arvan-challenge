@@ -2,15 +2,16 @@ package repository
 
 import (
 	"github.com/arvan-challenge/src/entity"
+	repository "github.com/arvan-challenge/src/repository/interface"
 	"gorm.io/gorm"
 )
 
 type usersRepository struct {
-	CommonBehaviourRepository[entity.User]
+	repository.CommonBehaviourRepository[entity.User]
 }
 
-func NewUsersRepository(db *gorm.DB) UserRepository {
+func NewUsersRepository(db *gorm.DB) repository.UserRepository {
 	return &usersRepository{
-		CommonBehaviourRepository: NewCommonBehaviour[entity.User](db),
+		CommonBehaviourRepository: repository.NewCommonBehaviour[entity.User](db),
 	}
 }
