@@ -24,5 +24,5 @@ func main() {
 		log.Panicf("err for open db : %+v", err)
 	}
 
-	log.Println("db.Statement: ", db.Statement)
+	log.Println("db.Statement: ", db.Name())
 }
